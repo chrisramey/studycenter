@@ -1,0 +1,9 @@
+#wrapper {
+	width:900px;
+	margin:0px auto;
+}
+
+.page-header {
+	background:url(img/wildcat-small.png) no-repeat 100% 50%;
+	background-size:50px 50px;
+}
