@@ -1,7 +1,8 @@
-<div class="row">
+<div class="row dashboard">
 	<!-- CHECKIN WIDGET -->
-	<div class="span5">
+	<div class="span5 checkin">
 		<?php include('views/admin/checkin.php') ?>
+		<div id="checkin-result"></div>
 	</div>
 	
 	<!-- CHECKED IN STUDENTS -->

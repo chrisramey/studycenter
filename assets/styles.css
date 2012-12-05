@@ -6,4 +6,47 @@
 .page-header {
 	background:url(img/wildcat-small.png) no-repeat 100% 50%;
 	background-size:50px 50px;
+	margin-bottom:10px;
+}
+
+.page-header small {
+	font-style:italic;
+	margin-left:20px;
+}
+
+.dashboard.row div.checkin {
+	height:400px;
+}
+
+.student h4 a.btn {
+	float:right;
+	/*margin-right:36px;*/
+}
+
+#form-validate-id .input-append input[type=text] {
+	width:322px;
+}
+
+form.form-inline .span2 {
+	width:174px;
+}
+
+form.form-inline label {
+	font-weight:bold;
+	font-size:20px;
+	display:block;
+}
+
+form.form-inline label small {
+	font-weight:normal;
+	float:right;
+	font-style:italic;
+}
+
+footer {
+	text-align:center;
+	color:#999;
+	border-top:1px solid #EEE;
+	padding-top:10px;
+	margin-top:10px;
 }

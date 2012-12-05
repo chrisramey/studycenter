@@ -1,6 +1,23 @@
 $(function(){
-	$('#form-validate-id').submit(function(){
-		alert('will validate id');
-		return false;
+	$('#form-validate-id').submit(function(e){
+		e.preventDefault();
+		var form = $(this);
+		
+		var url = ajax_url($(this).attr('action'));
+		
+		$('#checkin-result').fadeOut(100,function(){
+			// Send an AJAX post request
+			$.post(url,form.serialize(),function(data){
+				$('#checkin-result').html(data).fadeIn(100);
+				$('#student_number').val('');
+			});
+		});
 	});
 });
+
+/**
+ * AJAXify the given url
+ */
+function ajax_url(url) {
+	return url + (url.indexOf('?') < 0 ? '?' : '&') + 'ajax=true';
+}
