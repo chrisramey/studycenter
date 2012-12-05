@@ -13,6 +13,12 @@ $(function(){
 			});
 		});
 	});
+	
+	$('[data-action=remove]').live('click',function() {
+		var sel = $(this).attr('data-target');
+		var elm = $(this).closest(sel);
+		elm.slideUp(function(){elm.remove();});
+	});
 });
 
 /**

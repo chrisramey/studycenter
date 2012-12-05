@@ -20,7 +20,7 @@
 
 .student h4 a.btn {
 	float:right;
-	/*margin-right:36px;*/
+	margin-left:2px;
 }
 
 #form-validate-id .input-append input[type=text] {

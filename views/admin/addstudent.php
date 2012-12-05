@@ -9,6 +9,6 @@
 	</div>
 	<div class="form-actions">
 		<button type="submit" class="btn btn-success">Add</button>
-		<button type="button" class="btn">Cancel</button>
+		<button type="button" class="btn" data-action="remove" data-target=".student">Cancel</button>
 	</div>
 </form>

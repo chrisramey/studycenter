@@ -17,7 +17,7 @@ $students = get_results($results);
 
 if(count($students) == 1){ 
 	extract($students[0]);?>
-	<h4><?php echo "$student_firstname $student_lastname" ?> <a class="btn btn-mini btn-success" href="./?action=checkin&id=<?php echo $student_id ?>">check in</a></h4>
+	<h4><?php echo "$student_firstname $student_lastname" ?> <a class="btn btn-mini btn-danger" data-action="remove" data-target=".student" href="#"><i class="icon-remove icon-white"></i></a> <a class="btn btn-mini btn-success" href="./?action=checkin&id=<?php echo $student_id ?>">check in</a></h4>
 <?php } else {
 	echo '<div class="alert">No student with that ID was found. You can add this student below</div>';
 	include('views/admin/addstudent.php');
