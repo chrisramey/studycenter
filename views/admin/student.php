@@ -14,6 +14,7 @@ $conn = connect();
 $sql = "SELECT * FROM students WHERE student_number=$student_number";
 $results = $conn->query($sql);
 $students = get_results($results);
+$conn->close();
 
 if(count($students) == 1){ 
 	extract($students[0]);?>

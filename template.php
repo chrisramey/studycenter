@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="icon" type="image/png" href="assets/img/wildcat-icon.png" />
 	
 		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="assets/vendors/bootstrap/css/bootstrap-responsive.min.css" />
 		<link rel="stylesheet" type="text/css" href="assets/styles.css" />
 		
 		<script src="assets/vendors/jquery/jquery.min.js"></script>
@@ -13,7 +15,7 @@
 		<title>Wildcat Tracks</title>
 	</head>
 	<body>
-		<div id="wrapper">
+		<div id="wrapper" class="container-fluid">
 			<header>
 				<?php include('layout/header.php');?>
 			</header>
