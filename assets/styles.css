@@ -21,16 +21,23 @@ body {
 	margin-left:20px;
 }
 
+.alert p {
+	margin:0px;
+}
+
 .dashboard.row div.checkin {
 	height:400px;
 }
 
 ul.students button {
 	margin-left:8px;
+}
+
+ul.students button.checkout {
 	visibility:hidden;
 }
 
-ul.students li a:hover button {
+ul.students li a:hover button.checkout {
 	visibility:visible;
 }
 

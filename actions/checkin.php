@@ -1,6 +1,6 @@
 <?php
 if(!isset($_GET['id'])) {
-	redirect();
+	redirect('./','');
 }
 
 // Connect to DB
@@ -9,7 +9,19 @@ $conn = connect();
 // Student ID
 $id = addslashes($_GET['id']);
 
-// Query for student id
+// TODO: Make sure student isn't already checked in
+$sql = "SELECT session_id FROM sessions 
+		WHERE CURDATE()=DATE(session_timein)
+			AND session_timeout IS NULL
+			AND student_id=$id";
+$results = $conn->query($sql);
+$students = get_results($results);
+if(count($students) > 0) {
+	redirect('./','This student is already checked in.','');
+	die();
+}
+
+// Insert student
 $sql = "INSERT INTO sessions (student_id) VALUES($id)";
 $conn->query($sql);
 
