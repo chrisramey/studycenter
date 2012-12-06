@@ -21,8 +21,17 @@ body {
 	margin-left:20px;
 }
 
-.dashboard.row-fluid div.checkin {
+.dashboard.row div.checkin {
 	height:400px;
+}
+
+ul.students button {
+	margin-left:8px;
+	visibility:hidden;
+}
+
+ul.students li a:hover button {
+	visibility:visible;
 }
 
 .student {
@@ -48,6 +57,14 @@ form.form-inline label small {
 	font-weight:normal;
 	float:right;
 	font-style:italic;
+}
+
+.modal-body form label {
+	font-weight:bold;
+}
+
+textarea {
+	width:inherit;
 }
 
 footer {

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if(!isset($_GET['id'])) {
+	redirect();
+}
 
 // Connect to DB
 $conn = connect();
