@@ -74,6 +74,13 @@ form.form-inline label small {
 	margin-right:20px;
 }
 
+.modal h3 span {
+	float:right;
+	font-style:italic;
+	margin-right:40px;
+	color:#888;
+}
+
 .typeahead {
 	z-index:1051;
 }

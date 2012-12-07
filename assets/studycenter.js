@@ -54,22 +54,22 @@ function ajax_url(url) {
  	var form = 	'<div class="modal hide fade">';
  	form +=			'<div class="modal-header">';
  	form +=			'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
- 	form +=				'<h3>Checkout ' + student_name + '</h3>';
+ 	form +=				'<h3>' + student_name + '<span>Checkout</span></h3>';
  	form +=			'</div>';
  	form +=			'<div class="modal-body">';
-	form +=				'<form class="form" action="./?action=checkout" method="post">';
+	form +=				'<form id="form-checkout" class="form" action="./?action=checkout" method="post">';
 	form +=					'<input type="hidden" name="student_id" value="' + student_id + '"/>';
 	form +=					'<input type="hidden" name="session_id" value="' + session_id + '"/>';
-	form +=					'<input type="text" name="course_name" placeholder="course"/>';
+	form +=					'<input type="text" name="course_name" placeholder="COURSE"/>';
 	form +=					'<input type="hidden" name="course_id"/>';
-	form +=					'<input type="text" name="teacher_name" class="pull-right" placeholder="teacher"/>';
+	form +=					'<input type="text" name="teacher_name" class="pull-right" placeholder="TEACHER"/>';
 	form +=					'<input type="hidden" name="teacher_id"/>';
-	form +=					'<textarea rows="4" name="session_notes" placeholder="notes"></textarea>';
+	form +=					'<textarea rows="4" name="session_notes" placeholder="NOTES"></textarea>';
 	form +=				'</form>';
 	form +=			'</div>';
 	form +=			'<div class="modal-footer">';
 	form +=				'<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>';
-    form +=				'<button class="btn btn-primary">Checkout</button>';
+    form +=				'<button type="submit" class="btn btn-primary">Checkout</button>';
 	form +=			'</div>';
 	form +=		'</div>';
 
@@ -83,14 +83,41 @@ function ajax_url(url) {
 	modal.on('hidden',function(){
 		$(this).remove();
 	});
+
+	// Force checkout button to submit form
+	modal.find('button[type=submit]').click(function(){
+		$('#form-checkout').submit();
+	});
+
+	// Capture form submission
+	$('#form-checkout').submit(function(){
+		// Validate course, teacher & notes
+		if( $(this).find('input[name=course_name]').val() == '' || 
+			$(this).find('input[name=teacher_name]').val() == '' || 
+			$(this).find('input[name=course_id]').val() == '' || 
+			$(this).find('input[name=teacher_id]').val() == '' || 
+			$(this).find('textarea[name=session_notes]').val() == '') {
+			return false;
+		} else {
+			return true;
+		}
+	});
 }
 
+/**
+ * Function to call upon choosing a typeahead suggestion for the course name
+ */
 function course_updater(item) {
+	$('input[name=course_name]').val(item);
 	$('input[name=course_id]').val(course_ids[course_names.indexOf(item)]);
 	return item;
 }
 
+/**
+ * Function to call upon choosing a typeahead suggestion for the teacher name
+ */
 function teacher_updater(item) {
+	$('input[name=teacher_name]').val(item);
 	$('input[name=teacher_id]').val(teacher_ids[teacher_names.indexOf(item)]);
 	return item;
 }
