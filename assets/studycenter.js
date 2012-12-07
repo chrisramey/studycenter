@@ -76,11 +76,21 @@ function ajax_url(url) {
 	var modal = $(form);
 	modal.on('hidden',function(){$(this).remove();});
 	$('body').append(modal);
-	modal.find('input[name=course_name]').typeahead({source:course_names});
-	modal.find('input[name=teacher_name]').typeahead({source:teacher_names});
+	modal.find('input[name=course_name]').typeahead({source:course_names,updater:course_updater});
+	modal.find('input[name=teacher_name]').typeahead({source:teacher_names,updater:teacher_updater});
 	modal.modal();
 	
 	modal.on('hidden',function(){
 		$(this).remove();
 	});
- }
+}
+
+function course_updater(item) {
+	$('input[name=course_id]').val(course_ids[course_names.indexOf(item)]);
+	return item;
+}
+
+function teacher_updater(item) {
+	$('input[name=teacher_id]').val(teacher_ids[teacher_names.indexOf(item)]);
+	return item;
+}
