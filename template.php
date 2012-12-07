@@ -9,7 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="assets/styles.css" />
 		
 		<script src="assets/vendors/jquery/jquery.min.js"></script>
-		<script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+		<!--<script src="assets/vendors/jquery/jquery-ui.min.js"></script>-->
+		<script src="assets/vendors/bootstrap/js/bootstrap.js"></script>
 		<script src="assets/studycenter.js"></script>
 		
 		<title>Wildcat Tracks</title>

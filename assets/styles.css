@@ -70,8 +70,17 @@ form.form-inline label small {
 	font-weight:bold;
 }
 
+.modal-body form select[name=course_id] {
+	margin-right:20px;
+}
+
+.typeahead {
+	z-index:1051;
+}
+
 textarea {
-	width:inherit;
+	width:516px;
+	margin-top:20px;
 }
 
 footer {

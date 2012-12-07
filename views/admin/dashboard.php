@@ -6,7 +6,7 @@
 	</div>
 	
 	<!-- CHECKED IN STUDENTS -->
-	<div class="span4">
+	<div class="span4 offset1">
 		<?php include('views/admin/students.php') ?>
 	</div>
 </div>

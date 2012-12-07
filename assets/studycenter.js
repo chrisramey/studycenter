@@ -60,12 +60,11 @@ function ajax_url(url) {
 	form +=				'<form class="form" action="./?action=checkout" method="post">';
 	form +=					'<input type="hidden" name="student_id" value="' + student_id + '"/>';
 	form +=					'<input type="hidden" name="session_id" value="' + session_id + '"/>';
-	form +=					'<label for="session_notes">Notes</label>';
-	form +=					'<textarea rows="3" cols="83" name="session_notes"></textarea>';
-	form +=					'<label for="teacher_id">Teacher</label>';
-	form +=					'<select name="teacher_id">';
-
-	form +=					'</select>';
+	form +=					'<input type="text" name="course_name" placeholder="course"/>';
+	form +=					'<input type="hidden" name="course_id"/>';
+	form +=					'<input type="text" name="teacher_name" class="pull-right" placeholder="teacher"/>';
+	form +=					'<input type="hidden" name="teacher_id"/>';
+	form +=					'<textarea rows="4" name="session_notes" placeholder="notes"></textarea>';
 	form +=				'</form>';
 	form +=			'</div>';
 	form +=			'<div class="modal-footer">';
@@ -77,7 +76,10 @@ function ajax_url(url) {
 	var modal = $(form);
 	modal.on('hidden',function(){$(this).remove();});
 	$('body').append(modal);
+	modal.find('input[name=course_name]').typeahead({source:course_names});
+	modal.find('input[name=teacher_name]').typeahead({source:teacher_names});
 	modal.modal();
+	
 	modal.on('hidden',function(){
 		$(this).remove();
 	});
