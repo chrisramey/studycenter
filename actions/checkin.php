@@ -1,5 +1,5 @@
 <?php
-if(!isset($_GET['id'])) {
+if(!isset($_POST['id'])) {
 	redirect('./','');
 }
 
@@ -7,9 +7,10 @@ if(!isset($_GET['id'])) {
 $conn = connect();
 
 // Student ID
-$id = addslashes($_GET['id']);
+$id = addslashes($_POST['id']);
+$course_id = addslashes($_POST['course_id']);
 
-// TODO: Make sure student isn't already checked in
+// Make sure student isn't already checked in
 $sql = "SELECT session_id FROM sessions 
 		WHERE CURDATE()=DATE(session_timein)
 			AND session_timeout IS NULL
@@ -22,12 +23,14 @@ if(count($students) > 0) {
 }
 
 // Insert student
-$sql = "INSERT INTO sessions (student_id) VALUES($id)";
+$sql = "INSERT INTO sessions (student_id,course_id) VALUES($id,$course_id)";
 $conn->query($sql);
 
 // If an error occurred
 if($conn->error != '') {
 	$message = 'An error occurred and the student was not checked in. Please try again.';
+	$message .= "<br/>SQL: <code>$sql</code>";
+	$message .= "<br/>Error: <code>{$conn->error}</code>";
 	$type = 'danger';
 } else {
 	$message = null;

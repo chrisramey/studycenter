@@ -18,7 +18,20 @@ $conn->close();
 
 if(count($students) == 1){ 
 	extract($students[0]);?>
-	<h4><?php echo "$student_firstname $student_lastname" ?> <a class="btn btn-mini btn-danger" data-action="remove" data-target=".student" href="#"><i class="icon-remove icon-white"></i></a> <a class="btn btn-mini btn-success" href="./?action=checkin&id=<?php echo $student_id ?>">check in</a></h4>
+	<div class="">
+		<span class="student-name"><?php echo "$student_firstname $student_lastname" ?></span>
+		<!--<a class="btn btn-mini btn-danger" data-action="remove" data-target=".student" href="#">
+			<i class="icon-remove icon-white"></i>
+		</a>-->
+		<form class="form-inline pull-right" action="./?action=checkin" method="post">
+			<input type="hidden" name="id" value="<?php echo $student_id ?>" />
+			<input type="hidden" name="course_id" value="" />
+			<div class="input-append">
+				<input class="span2" type="text" name="course_name" placeholder="course" autocomplete="off"/>
+				<button class="btn" type="submit"><i class="icon-check"></i></button>
+			</div>
+		</form>
+	</div>
 <?php } else {
 	echo '<div class="alert">No student with that ID was found. You can add this student below</div>';
 	include('views/admin/addstudent.php');

@@ -29,6 +29,11 @@ body {
 	height:400px;
 }
 
+.student-name {
+	font-weight:bold;
+	line-height:30px;
+}
+
 ul.students button {
 	margin-left:8px;
 }
@@ -51,7 +56,7 @@ ul.students li a:hover button.checkout {
 }
 
 #form-validate-id .input-append input[type=text] {
-	width:322px;
+	width:313px;
 }
 
 form.form-inline label {
@@ -70,15 +75,23 @@ form.form-inline label small {
 	font-weight:bold;
 }
 
-.modal-body form select[name=course_id] {
-	margin-right:20px;
+.modal-body .course-name {
+	margin-right:36px;
+	line-height:30px;
+	font-size:20px;
+}
+
+.modal-body .pull-right span {
+	display:inline-block;
+	font-size:20px;
+	margin-top:4px;
 }
 
 .modal h3 span {
 	float:right;
 	font-style:italic;
-	margin-right:40px;
-	color:#888;
+	margin-right:24px;
+	color:#ddd;
 }
 
 .typeahead {
