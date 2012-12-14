@@ -17,7 +17,7 @@ $sql = "INSERT INTO students (student_number,student_firstname,student_lastname)
 $conn->query($sql);
 
 // Checkin the student
-$_GET['id'] = $conn->insert_id;
+$_POST['id'] = $conn->insert_id;
 require('checkin.php');
 /*
 // If an error occurred

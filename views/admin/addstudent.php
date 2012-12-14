@@ -7,6 +7,13 @@
 			<input class="span2" type="text" name="student_lastname" placeholder="last" />
 		</div>
 	</div>
+	<div class="control-group">
+		<label class="control-label" for="course_name">Course</label>
+		<div class="controls">
+			<input type="hidden" name="course_id" value="" />
+			<input class="span2" type="text" name="course_name" placeholder="course" autocomplete="off"/>
+		</div>
+	</div>
 	<div class="form-actions">
 		<button type="submit" class="btn btn-success">Add</button>
 		<button type="button" class="btn" data-action="remove" data-target=".student">Cancel</button>
