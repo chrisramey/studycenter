@@ -51,6 +51,14 @@ $(function(){
 	 	var course_name = get_course_name(li.attr('data-course-id'));
 	 	show_grade_form(session_id,student_id,student_name,course_name);
 	});
+
+	// Capture the enter key in forms
+	$('modal form').live('keypress', function(e) {
+	    if (e.keyCode == 13 && e.target.type != "textarea") {
+	    	$(this).submit();
+	    	e.preventDefault();
+	    }
+	});
 });
 
 /**
@@ -86,7 +94,6 @@ function ajax_url(url) {
 	form +=		'</div>';
 
 	var modal = $(form);
-	modal.on('hidden',function(){$(this).remove();});
 	$('body').append(modal);
 	modal.find('input[name=course_name]').typeahead({source:course_names,updater:course_updater});
 	modal.find('input[name=teacher_name]').typeahead({source:teacher_names,updater:teacher_updater});
@@ -102,7 +109,7 @@ function ajax_url(url) {
 	});
 
 	// Capture form submission
-	$('#form-checkout').submit(function(){
+	modal.find('form').submit(function(){
 		// Validate course, teacher & notes
 		if( $(this).find('input[name=course_name]').val() == '' || 
 			$(this).find('input[name=teacher_name]').val() == '' || 
@@ -122,47 +129,37 @@ function ajax_url(url) {
  function show_grade_form(session_id,student_id,student_name,course_name) {
  	var form = 	'<div class="modal hide fade">';
  	form +=			'<div class="modal-header">';
- 	form +=			'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
+ 	form +=				'<button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
  	form +=				'<h3>' + student_name + '<span>Enter Grade</span></h3>';
  	form +=			'</div>';
- 	form +=			'<div class="modal-body">';
-	form +=				'<form id="form-checkout" class="form" action="./?action=add_grade" method="post">';
+ 	form +=			'<form action="./?action=add_grade" method="post">';
+ 	form +=				'<div class="modal-body">';
 	form +=					'<input type="hidden" name="student_id" value="' + student_id + '"/>';
 	form +=					'<input type="hidden" name="session_id" value="' + session_id + '"/>';
-	form +=					'<input type="text" name="grade" pattern="[0-9]*" placeholder="grade percent" autocomplete="off"/>';
+	form +=					'<input type="text" name="grade_percent" pattern="[0-9]*" placeholder="grade percent" autocomplete="off"/>';
 	form +=					'<div class="pull-right course-name">' + course_name + '</div>';
-	form +=				'</form>';
-	form +=			'</div>';
-	form +=			'<div class="modal-footer">';
-	form +=				'<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>';
-    form +=				'<button type="submit" class="btn btn-primary">Enter Grade</button>';
-	form +=			'</div>';
+	form +=				'</div>';
+	form +=					'<div class="modal-footer">';
+	form +=					'<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>';
+    form +=					'<input type="submit" class="btn btn-primary" value="Enter grade" />';
+	form +=				'</div>';
+	form +=			'</form>';
 	form +=		'</div>';
 
 	var modal = $(form);
-	modal.on('hidden',function(){$(this).remove();});
 	$('body').append(modal);
-	modal.find('input[name=course_name]').typeahead({source:course_names,updater:course_updater});
-	modal.find('input[name=teacher_name]').typeahead({source:teacher_names,updater:teacher_updater});
 	modal.modal();
 	
 	modal.on('hidden',function(){
 		$(this).remove();
 	});
 
-	// Force checkout button to submit form
-	modal.find('button[type=submit]').click(function(){
-		$('#form-checkout').submit();
-	});
-
 	// Capture form submission
-	$('#form-checkout').submit(function(){
+	modal.find('form').submit(function(){
 		// Validate course, teacher & notes
-		if( $(this).find('input[name=course_name]').val() == '' || 
-			$(this).find('input[name=teacher_name]').val() == '' || 
-			$(this).find('input[name=course_id]').val() == '' || 
-			$(this).find('input[name=teacher_id]').val() == '' || 
-			$(this).find('textarea[name=session_notes]').val() == '') {
+		if( $(this).find('input[name=student_id]').val() == '' || 
+			$(this).find('input[name=session_id]').val() == '' || 
+			$(this).find('input[name=grade_percent]').val() == '' || isNaN($(this).find('input[name=grade_percent]').val())) {
 			return false;
 		} else {
 			return true;

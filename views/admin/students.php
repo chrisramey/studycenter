@@ -19,8 +19,10 @@ $conn->close();
 <?php else: ?>
 	<ul class="students nav nav-tabs nav-stacked">
 	<?php foreach($students as $s):?>
-		<?php $name = "{$s['student_firstname']} {$s['student_lastname']}" ?>
-		<li data-session-id="<?php echo $s['session_id'] ?>" data-course-id="<?php echo $s['course_id'] ?>" data-student-id="<?php echo $s['student_id'] ?>" data-student-name="<?php echo $name ?>"><a href="#"><?php echo $name ?><button class="grade pull-right btn btn-mini btn-info">enter grade</button><button class="checkout pull-right btn btn-mini btn-inverse">checkout</button></a></li>
+		<?php 
+		$name = "{$s['student_firstname']} {$s['student_lastname']}";
+		?>
+		<li data-session-id="<?php echo $s['session_id'] ?>" data-course-id="<?php echo $s['course_id'] ?>" data-student-id="<?php echo $s['student_id'] ?>" data-student-name="<?php echo $name ?>" data-teacher-id="<?php echo $s['teacher_id'] ?>"><a href="#"><?php echo $name ?><button class="grade pull-right btn btn-mini btn-info">enter grade</button><button class="checkout pull-right btn btn-mini btn-inverse">checkout</button></a></li>
 	<?php endforeach ?>
 	</ul>
 <?php endif ?>
