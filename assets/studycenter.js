@@ -81,6 +81,7 @@ function ajax_url(url) {
 	form +=				'<form id="form-checkout" class="form" action="./?action=checkout" method="post">';
 	form +=					'<input type="hidden" name="student_id" value="' + student_id + '"/>';
 	form +=					'<input type="hidden" name="session_id" value="' + session_id + '"/>';
+	form +=					'<input type="hidden" name="student_name" value="' + student_name + '"/>';
 	form +=					'<input type="text" name="teacher_name" placeholder="TEACHER" autocomplete="off"/>';
 	form +=					'<input type="hidden" name="teacher_id"/>';
 	form +=					'<div class="pull-right course-name">' + course_name + '</div>';
@@ -179,7 +180,7 @@ function course_updater(item) {
 /**
  * Function to call upon choosing a typeahead suggestion for the teacher name
  */
-function teacher_updater(item) {
+function teacher_updater(item) {	
 	$('input[name=teacher_name]').val(item);
 	$('input[name=teacher_id]').val(teacher_ids[teacher_names.indexOf(item)]);
 	return item;

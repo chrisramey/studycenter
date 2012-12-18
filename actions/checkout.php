@@ -8,6 +8,7 @@ $student_id = addslashes($_POST['student_id']);
 $session_id = addslashes($_POST['session_id']);
 $teacher_id = addslashes($_POST['teacher_id']);
 $session_notes = addslashes($_POST['session_notes']);
+$student_name = addslashes($_POST['student_name']);
 
 // Validate that all info was provided
 if($student_id == '' || $session_id == '' || $teacher_id == '' || $session_notes == '') {
@@ -27,8 +28,8 @@ if($conn->error != '') {
 	$message .= "<br/>Error: <code>{$conn->error}</code>";
 	$type = 'danger';
 } else {
-	$message = null;
-	$type = '';
+	$message = "<strong>$student_name</strong> has checked out of the study center.";
+	$type = 'info';
 }
 
 // Close DB connection
