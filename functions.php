@@ -25,7 +25,7 @@ function has_permission($file) {
 	
 	// If logged in
 	if(is_logged_in()) { // allow actions & access to public & admin directories
-		return  $action != null || $dir_name == 'public' || $dir_name == 'admin';
+		return  $action != null || $dir_name == 'public' || $dir_name == 'admin' || $dir_name = 'checkin';
 	} else if($action == 'authenticate' || $dir_name == 'public') { // allow public users access to public directory
 		return true;
 	} else { // NINJA USER! *karate chop to the head*

@@ -24,6 +24,7 @@ if(count($students) == 1){
 			<i class="icon-remove icon-white"></i>
 		</a>-->
 		<form class="form-inline pull-right" action="./?action=checkin" method="post">
+			<input type="hidden" name="redirect" value="<?php echo $redirect ?>" />
 			<input type="hidden" name="id" value="<?php echo $student_id ?>" />
 			<input type="hidden" name="course_id" value="" />
 			<div class="input-append">

@@ -1,6 +1,8 @@
 <?php
+$location = addslashes($_POST['redirect']);
+$success_url = "./?p=$location";
 if(!isset($_POST['id'])) {
-	redirect('./','');
+	redirect($success_url,'');
 }
 
 // Connect to DB
@@ -18,7 +20,7 @@ $sql = "SELECT session_id FROM sessions
 $results = $conn->query($sql);
 $students = get_results($results);
 if(count($students) > 0) {
-	redirect('./','This student is already checked in.','');
+	redirect($success_url,'This student is already checked in.','');
 	die();
 }
 
@@ -33,12 +35,18 @@ if($conn->error != '') {
 	$message .= "<br/>Error: <code>{$conn->error}</code>";
 	$type = 'danger';
 } else {
-	$message = null;
-	$type = '';
+
+	// Get student's name for message
+	$sql = "SELECT CONCAT(student_firstname,' ',student_lastname) AS name FROM students WHERE student_id=$id";
+	$results = $conn->query($sql);
+	$student = $results->fetch_assoc();
+	$name = $student['name'];
+	$message = "<strong>$name</strong> has been checked in!";
+	$type = 'info';
 }
 
 // Close DB connection
 $conn->close();
 
 // Redirect
-redirect('./',$message,$type);
+redirect($success_url,$message,$type);

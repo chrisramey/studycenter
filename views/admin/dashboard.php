@@ -1,4 +1,4 @@
-<div class="row dashboard">
+<div class="row-fluid dashboard">
 	<!-- CHECKIN WIDGET -->
 	<div class="span4 checkin">
 		<?php include('views/admin/checkin.php') ?>
