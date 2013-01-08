@@ -31,6 +31,7 @@ if(count($students) == 1){
 				<input class="span10" type="text" name="course_name" placeholder="course" autocomplete="off"/>
 				<button class="btn" type="submit"><i class="icon-check"></i></button>
 			</div>
+			<a href="#" data-action="remove" data-target=".student">cancel</a>
 		</form>
 	</div>
 <?php } else {

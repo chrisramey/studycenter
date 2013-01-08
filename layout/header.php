@@ -1,9 +1,10 @@
 <div class="page-header">
+	<div id="user">&nbsp;
 	<?php if(is_logged_in()): ?>
-		<div id="user">
-			<span>Logged in as</span> <?php echo "{$_SESSION['user']['user_firstname']} {$_SESSION['user']['user_lastname']}" ?>
-			<a href="./?action=authenticate&amp;logout=true">logout</a>
-		</div>
+		<span>Logged in as</span> <?php echo "{$_SESSION['user']['user_firstname']} {$_SESSION['user']['user_lastname']}" ?>
+		<a href="./?action=authenticate&amp;logout=true">logout</a>
 	<?php endif ?>
+	</div>
+	
 	<h1>Wildcat Tracks <small>staying on the road to success</small></h1>
 </div>

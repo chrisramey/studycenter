@@ -120,7 +120,7 @@ form.form-inline label small {
 }
 
 form.form-inline .input-append {
-	display:block;
+	/*display:inline-block;*/
 }
 
 .modal-body form label {
