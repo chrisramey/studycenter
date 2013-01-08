@@ -24,7 +24,7 @@ if(isset($_GET['logout'])) {
 	
 	if($user != null) {		// User found
 		$_SESSION['user'] = $user;
-		$message = "Welcome back, {$user['user_firstname']}!";
+		$message = null;//"Welcome back, {$user['user_firstname']}!";
 		$location = './';
 	} else {					// User not found
 		$message = 'You have entered an invalid username and password combination. Please try again.';
