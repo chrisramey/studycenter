@@ -16,7 +16,7 @@
 		<title>Wildcat Tracks</title>
 	</head>
 	<body>
-		<div id="wrapper" class="container-fluid">
+		<div id="wrapper" class="container container-fluid">
 			<header>
 				<?php include('layout/header.php');?>
 			</header>

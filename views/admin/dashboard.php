@@ -1,12 +1,16 @@
 <div class="row-fluid dashboard">
 	<!-- CHECKIN WIDGET -->
-	<div class="span4 checkin">
-		<?php include('views/admin/checkin.php') ?>
-		<div id="checkin-result"></div>
+	<div class="span6">
+		<div id="checkin-wrapper" class="well">
+			<?php include('views/admin/checkin.php') ?>
+			<div id="checkin-result"></div>
+		</div>
 	</div>
 	
 	<!-- CHECKED IN STUDENTS -->
-	<div class="span4 offset1">
-		<?php include('views/admin/students.php') ?>
+	<div class="span6">
+		<div id="students-wrapper">
+			<?php include('views/admin/students.php') ?>
+		</div>
 	</div>
 </div>

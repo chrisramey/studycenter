@@ -6,7 +6,7 @@ body {
 #wrapper {
 	background:#fff;
 	padding:8px;
-	width:900px;
+	/*width:900px;*/
 	margin:0px auto;
 }
 
@@ -29,9 +29,10 @@ body {
 	height:400px;
 }
 
-.student-name {
+#checkin-result .student-name {
 	font-weight:bold;
 	line-height:30px;
+	color:#222;
 }
 
 ul.students button {
@@ -50,17 +51,48 @@ ul.students li a:hover button.checkout {
 	padding-top:1px;
 }
 
+.student form input[name=course_name] {
+	width:280px;
+}
+
 .student h4 a.btn {
 	float:right;
 	margin-left:2px;
 }
 
-#checkin-result .student {
-	padding:0px 12px;
+#checkin-wrapper {
+	margin-top:20px;
+	padding:20px;
 }
 
-#form-validate-id .input-append input[type=text] {
-	width:313px;
+#checkin-wrapper h3 {
+	/*float:right;*/
+	font-style:italic;
+	margin-top:0px;
+	color:#89E0A8;
+}
+
+#form-validate-id {
+	margin-bottom:0px;
+}
+
+#form-validate-id input[type=text] {
+	font-size:22px;
+	line-height:30px;
+	padding:8px;
+	height:46px;
+}
+
+#form-validate-id button {
+	height:46px;
+}
+
+#form-validate-id .input-append input[type=text], form.form-inline .input-append input[type=text]{
+	width:280px;
+}
+
+#checkin-result {
+	margin-top:20px;
 }
 
 form.form-inline label {
@@ -73,6 +105,10 @@ form.form-inline label small {
 	font-weight:normal;
 	float:right;
 	font-style:italic;
+}
+
+form.form-inline .input-append {
+	display:block;
 }
 
 .modal-body form label {
@@ -113,4 +149,11 @@ footer {
 	border-top:1px solid #EEE;
 	padding-top:10px;
 	margin-top:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:680px) {
+	.page-header h1 small {
+		display:none;
+	}
 }

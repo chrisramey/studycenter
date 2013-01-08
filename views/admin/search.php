@@ -18,17 +18,17 @@ $conn->close();
 
 if(count($students) == 1){ 
 	extract($students[0]);?>
-	<div class="">
-		<span class="student-name"><?php echo "$student_firstname $student_lastname" ?></span>
+	<div>
+		<h3 class="student-name"><?php echo "$student_firstname $student_lastname" ?></h3>
 		<!--<a class="btn btn-mini btn-danger" data-action="remove" data-target=".student" href="#">
 			<i class="icon-remove icon-white"></i>
 		</a>-->
-		<form class="form-inline pull-right" action="./?action=checkin" method="post">
+		<form class="form-inline" action="./?action=checkin" method="post">
 			<input type="hidden" name="redirect" value="<?php echo $redirect ?>" />
 			<input type="hidden" name="id" value="<?php echo $student_id ?>" />
 			<input type="hidden" name="course_id" value="" />
 			<div class="input-append">
-				<input class="span2" type="text" name="course_name" placeholder="course" autocomplete="off"/>
+				<input class="span10" type="text" name="course_name" placeholder="course" autocomplete="off"/>
 				<button class="btn" type="submit"><i class="icon-check"></i></button>
 			</div>
 		</form>
