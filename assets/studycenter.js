@@ -48,8 +48,9 @@ $(function(){
 	 	var session_id = li.attr('data-session-id');
 	 	var student_id = li.attr('data-student-id');
 	 	var student_name = li.attr('data-student-name');
-	 	var course_name = get_course_name(li.attr('data-course-id'));
-	 	show_grade_form(session_id,student_id,student_name,course_name);
+	 	var course_id = li.attr('data-course-id');
+	 	var course_name = get_course_name(course_id);
+	 	show_grade_form(session_id,student_id,student_name,course_id,course_name);
 	});
 
 	// Capture the enter key in forms
@@ -127,7 +128,7 @@ function ajax_url(url) {
 /**
  * Display a grade modal with the given student data
  */
- function show_grade_form(session_id,student_id,student_name,course_name) {
+ function show_grade_form(session_id,student_id,student_name,course_id,course_name) {
  	var form = 	'<div class="modal hide fade">';
  	form +=			'<div class="modal-header">';
  	form +=				'<button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>';
@@ -136,8 +137,10 @@ function ajax_url(url) {
  	form +=			'<form action="./?action=add_grade" method="post">';
  	form +=				'<div class="modal-body">';
 	form +=					'<input type="hidden" name="student_id" value="' + student_id + '"/>';
+	form +=					'<input type="hidden" name="student_name" value="' + student_name + '"/>';
+	form +=					'<input type="hidden" name="course_id" value="' + course_id + '"/>';
 	form +=					'<input type="hidden" name="session_id" value="' + session_id + '"/>';
-	form +=					'<input type="text" name="grade_percent" pattern="[0-9]*" placeholder="grade percent" autocomplete="off"/>';
+	form +=					'<input type="number" name="grade_percent" step="any" placeholder="grade percent" autocomplete="off"/>';
 	form +=					'<div class="pull-right course-name">' + course_name + '</div>';
 	form +=				'</div>';
 	form +=					'<div class="modal-footer">';

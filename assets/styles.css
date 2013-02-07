@@ -52,11 +52,11 @@ ul.students button {
 }
 
 ul.students button.checkout {
-	visibility:hidden;
+	/*visibility:hidden;*/
 }
 
 ul.students li a:hover button.checkout {
-	visibility:visible;
+	/*visibility:visible;*/
 }
 
 .student {
