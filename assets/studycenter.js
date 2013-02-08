@@ -54,12 +54,15 @@ $(function(){
 	});
 
 	// Capture the enter key in forms
-	$('modal form').live('keypress', function(e) {
+	$('.modal form').live('keypress', function(e) {
 	    if (e.keyCode == 13 && e.target.type != "textarea") {
 	    	$(this).submit();
 	    	e.preventDefault();
 	    }
 	});
+
+	// Activate tooltips
+	$('[data-toggle=tooltip]').tooltip();
 });
 
 /**

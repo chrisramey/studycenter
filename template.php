@@ -11,6 +11,10 @@
 		<script src="assets/vendors/jquery/jquery.min.js"></script>
 		<!--<script src="assets/vendors/jquery/jquery-ui.min.js"></script>-->
 		<script src="assets/vendors/bootstrap/js/bootstrap.js"></script>
+
+		<!--<script type="text/javascript" src="assets/vendors/highcharts/js/highcharts.src.js"></script>-->
+		<script src="//code.highcharts.com/highcharts.js"></script>
+
 		<script src="assets/studycenter.js"></script>
 		
 		<title>Wildcat Tracks</title>

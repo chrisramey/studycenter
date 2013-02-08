@@ -6,5 +6,5 @@
 	<?php endif ?>
 	</div>
 	
-	<h1>Wildcat Tracks <small>staying on the road to success</small></h1>
+	<h1>Wildcat Tracks <small>staying on the road to success</small><a class="btn" href="./?p=admin/analytics" data-placement="left" data-toggle="tooltip" data-original-title="View analytics"><img src="assets/img/wildcat-small.png" alt="" /></a></h1>
 </div>

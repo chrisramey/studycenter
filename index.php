@@ -33,6 +33,6 @@ if(has_permission($CURR_PAGE)) {
 		load_file($file);
 	}
 } else { // Otherwise, force them to login
-	redirect('./?p=public/login','You must login to do that.');
+	redirect('./?p=public/login');
 }
 ?>

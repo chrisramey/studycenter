@@ -14,7 +14,7 @@ $students = get_results($results);
 // Close DB connection
 $conn->close();
 ?>
-<h3>Currently checked in</h3>
+<h3>Active Students</h3>
 <?php if(count($students) == 0): ?>
 	<p class="alert">There are no checked in students.</p>
 <?php else: ?>
